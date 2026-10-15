@@ -597,7 +597,7 @@ export const copy = {
     registrationValue: "2026年10月30日（全球时区）",
     feesLabel: "注册费",
     fees: [
-      { label: "", value: "本次会议不收取会议注册费" },
+      { label: "", value: "本次会议不收取会议注册费。" },
     ],
     mealsLabel: "餐饮、差旅与住宿",
     mealsValue:
