@@ -286,8 +286,7 @@ export const copy = {
     registrationValue: "October 30, 2026, anywhere on Earth",
     feesLabel: "Registration fee",
     fees: [
-      { label: "Students", value: "RMB 900" },
-      { label: "Faculty and other participants", value: "RMB 1,400" },
+      { label: "", value: "No registration fee will be charged for this conference." },
     ],
     mealsLabel: "Meals, travel, and accommodation",
     mealsValue:
@@ -598,8 +597,7 @@ export const copy = {
     registrationValue: "2026年10月30日（全球时区）",
     feesLabel: "注册费",
     fees: [
-      { label: "学生", value: "900 元人民币" },
-      { label: "教师及其他参会人员", value: "1400 元人民币" },
+      { label: "", value: "本次会议不收取会议注册费" },
     ],
     mealsLabel: "餐饮、差旅与住宿",
     mealsValue:
