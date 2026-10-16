@@ -126,6 +126,14 @@ export const copy = {
       },
       {
         badge: "Plenary Speaker",
+        name: "Degui Li",
+        role: "Faculty of Business Administration, University of Macau",
+        photo: withBase("speakers/li-degui.jpg"),
+        website: "https://fba.um.edu.mo/faculty/deguili/",
+        bio: "Degui Li is the Professor of Business Economics at the Faculty of Business Administration, University of Macau, Chief Researcher in Financial Econometrics at the Asia-Pacific Institute of Economics and Management, and a part-time Distinguished Professor in the Department of Economics, Faculty of Social Sciences. He is a recipient of the National Science Fund for Distinguished Young Scholars of the National Natural Science Foundation of China. He currently serves as Co-Editor of Econometric Theory and Associate Editor of the Journal of Time Series Analysis. His main research areas include time series analysis, panel data modeling, functional data analysis, gridded data modeling, financial econometrics, nonparametric econometrics, and high-dimensional econometrics. His research findings have been published in journals such as Annals of Statistics, Journal of the American Statistical Association, Journal of Econometrics, and Journal of Business & Economic Statistics.",
+      },
+      {
+        badge: "Plenary Speaker",
         name: "Juanjuan Meng",
         role: "Guanghua School of Management, Peking University",
         photo: withBase("speakers/meng.jpg"),
@@ -442,6 +450,14 @@ export const copy = {
         photo: withBase("speakers/chew.jpg"),
         website: "https://ies.swufe.edu.cn/info/1511/3041.htm",
         bio: "Soo Hong Chew，西南财经大学智能经济科学中心主任、首席教授，新加坡国立大学荣誉退休经济学教授。世界计量经济学会会士、经济理论促进会会士，曾任经济科学协会副主席，获得2022年度四川省人民政府颁发的“天府友谊奖”。主要研究方向为决策理论、行为与实验经济学、生物经济学以及风险与不确定性条件下的决策问题。成果刊发于《Econometrica》《Journal of Political Economy》《Review of Economic Studies》《Journal of Economic Theory》《Management Science》和《PNAS》等顶级期刊。",
+      },
+      {
+        badge: "特邀报告嘉宾",
+        name: "李德柜",
+        role: "澳门大学工商管理学院",
+        photo: withBase("speakers/li-degui.jpg"),
+        website: "https://fba.um.edu.mo/faculty/deguili/",
+        bio: "李德柜，澳门大学工商管理学院商业经济学特聘教授、亚太经济与管理研究所金融计量经济首席研究员及社会科学学院经济系兼职特聘教授，国家自然科学基金杰出青年科学基金项目获得者，现任《Econometric Theory》联合主编及《Journal of Time Series Analysis》副主编。主要研究领域包括时间序列分析、面板数据建模、函数型数据分析、网格数据建模、金融计量经济学、非参数计量经济学、高维计量经济学。研究成果发表于《Annals of Statistics》《Journal of the American Statistical Association》《Journal of Econometrics》《Journal of Business & Economic Statistics》等期刊。",
       },
       {
         badge: "特邀报告嘉宾",
