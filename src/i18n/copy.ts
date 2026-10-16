@@ -220,10 +220,6 @@ export const copy = {
     committeeLabel: "Organizing Committee",
     committee: [
       {
-        name: "Zijun Luo",
-        role: "University of Nebraska at Omaha, Department of Economics",
-      },
-      {
         name: "Jianxin Wang",
         role: "Business School, Central South University",
       },
@@ -540,10 +536,6 @@ export const copy = {
     committeeKicker: "委员会",
     committeeLabel: "组织委员会",
     committee: [
-      {
-        name: "罗子俊",
-        role: "内布拉斯加大学奥马哈分校经济系",
-      },
       {
         name: "王建新",
         role: "中南大学商学院",
