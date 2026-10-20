@@ -43,7 +43,7 @@ export const copy = {
     facts: [
       { label: "Dates", value: "11\u201113 Nov 2026\nRegistration: Nov 11" },
       { label: "Venue", value: "Changsha, China" },
-      { label: "Deadline", value: "19 Oct 2026 AoE" },
+      { label: "Deadline", value: "22 Oct 2026 AoE" },
     ],
     aboutImageAlt: "Illustrated panorama of Changsha landmarks and Central South University",
     aboutKicker: "About the meeting",
@@ -283,7 +283,7 @@ export const copy = {
     reviewNote:
       "All submissions will be reviewed by a panel of experts. Authors of selected papers will be invited to present their research at the conference.",
     deadlineLabel: "Submission deadline",
-    deadlineValue: "October 19, 2026, anywhere on Earth",
+    deadlineValue: "October 22, 2026, anywhere on Earth",
     acceptanceLabel: "Notification of acceptance",
     acceptanceValue: "By October 23, 2026",
     registrationLabel: "Registration deadline",
@@ -365,7 +365,7 @@ export const copy = {
     facts: [
       { label: "日期", value: "2026年11月11\u201113日\n（11日报到）" },
       { label: "地点", value: "中国长沙" },
-      { label: "截稿", value: "2026年10月19日\n（全球时区）" },
+      { label: "截稿", value: "2026年10月22日\n（全球时区）" },
       { label: "会议语言", value: "中文分会场和英文分会场" },
     ],
     aboutImageAlt: "长沙城市地标与中南大学手绘全景图",
@@ -598,7 +598,7 @@ export const copy = {
     reviewNote:
       "所有投稿将由专家评审组评审。入选论文的作者将获邀在会议上报告研究成果。",
     deadlineLabel: "投稿截止时间",
-    deadlineValue: "2026年10月19日（全球时区）",
+    deadlineValue: "2026年10月22日（全球时区）",
     acceptanceLabel: "录用通知时间",
     acceptanceValue: "2026年10月23日前",
     registrationLabel: "注册截止时间",
