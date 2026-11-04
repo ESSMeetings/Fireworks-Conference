@@ -196,7 +196,7 @@ export const copy = {
         name: "Yulei Rao",
         photo: withBase("speakers/rao.jpg"),
         posts: [
-          { role: "Director", org: "Financial Innovation Research Center\nCentral South University" },
+          { role: "Director", org: "Financial\u00A0Innovation\u00A0Research\u00A0Center\nCentral South University" },
         ],
       },
       {
