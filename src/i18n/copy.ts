@@ -206,14 +206,6 @@ export const copy = {
           { role: "Dean", org: "Business School\nCentral South University" },
         ],
       },
-      {
-        name: "Erte Xiao",
-        photo: withBase("speakers/xiao.jpg"),
-        posts: [
-          { role: "Fellow", org: "Academy of the Social Sciences in Australia" },
-          { role: "Asia-Pacific Regional Vice President", org: "Economic Science Association" },
-        ],
-      },
     ],
     orderNote: "in alphabetical order",
     committeeKicker: "Committee",
@@ -522,14 +514,6 @@ export const copy = {
         name: "王宗润",
         photo: withBase("speakers/wang.jpg"),
         posts: [{ role: "院长", org: "中南大学商学院" }],
-      },
-      {
-        name: "肖尔特",
-        photo: withBase("speakers/xiao.jpg"),
-        posts: [
-          { role: "院士", org: "澳大利亚社会科学院" },
-          { role: "亚太地区副主席", org: "经济科学协会" },
-        ],
       },
     ],
     orderNote: "按姓氏字母顺序排序",
