@@ -302,9 +302,39 @@ const kickerClass = isZh ? "font-zh-sans font-bold" : "font-semibold";
         {c.programKicker}
       </p>
       <h2 class:list={["mt-3 text-3xl sm:text-4xl", titleClass]} style="color: var(--ink);">{c.programTitle}</h2>
-      <div class="card-hover mt-10 rounded-3xl p-8 sm:p-12" style="background: var(--program-wash);">
-        <p class:list={["text-xs uppercase tracking-[0.22em]", kickerClass]} style="color: var(--accent-cyan);">{c.programDates}</p>
-        <p class:list={["mt-3 text-3xl", titleClass]} style="color: var(--accent-gold);">{c.programNote}</p>
+      <div class="card-hover mt-10 rounded-3xl p-5 sm:p-8" style="background: var(--program-wash);">
+        <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class:list={["text-xs uppercase tracking-[0.22em]", kickerClass]} style="color: var(--accent-cyan);">{c.programDates}</p>
+            <p class:list={["mt-3 text-2xl sm:text-3xl", titleClass]} style="color: var(--accent-gold);">{c.programNote}</p>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a
+              href={c.programPdfHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rounded-full border px-5 py-2.5 text-sm font-semibold"
+              style="border-color: var(--line-strong); color: var(--ink);"
+            >
+              {c.programOpenLabel}<span class="ml-1" aria-hidden="true">↗</span>
+            </a>
+            <a
+              href={c.programPdfHref}
+              download="ESS-Asia-Meeting-Program.pdf"
+              class="rounded-full bg-gradient-to-r from-fuchsia-500 to-amber-400 px-5 py-2.5 text-sm font-semibold text-night"
+            >
+              {c.programDownloadLabel}
+            </a>
+          </div>
+        </div>
+        <div class="mt-6 overflow-hidden rounded-2xl border" style="border-color: var(--line-strong); background: white;">
+          <iframe
+            src={`${c.programPdfHref}#view=FitH`}
+            title={c.programPdfTitle}
+            class="h-[72vh] min-h-[34rem] max-h-[58rem] w-full"
+            loading="lazy"
+          ></iframe>
+        </div>
       </div>
     </section>
 
