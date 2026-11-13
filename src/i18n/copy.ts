@@ -137,14 +137,6 @@ export const copy = {
       },
       {
         badge: "Plenary Speaker",
-        name: "Juanjuan Meng",
-        role: "Guanghua School of Management, Peking University",
-        photo: withBase("speakers/meng.jpg"),
-        website: "https://www.gsm.pku.edu.cn/faculty/jumeng/",
-        bio: "Juanjuan Meng is Professor in the Department of Applied Economics at Guanghua School of Management, Peking University, and Director of the Research Center for Behavioral Science and Policy Intervention at Peking University. She is a recipient of the National Science Fund for Distinguished Young Scholars of the National Natural Science Foundation of China and currently serves as an Associate Editor of Management Science. Her research interests include behavioral economics, with a focus on behavioral intervention and behavioral issues in the digital economy. Her research has been published in journals including American Economic Review, Management Science, Review of Financial Studies, The Economic Journal, Review of Economics and Statistics, Journal of Public Economics, International Economic Review, Journal of Development Economics, Games and Economic Behavior, and Journal of Economic Behavior & Organization.",
-      },
-      {
-        badge: "Plenary Speaker",
         name: "Xiangdong Qin",
         role: "Antai College of Economics and Management, Shanghai Jiao Tong University",
         photo: withBase("speakers/qin.jpg"),
@@ -452,14 +444,6 @@ export const copy = {
         photo: withBase("speakers/li-degui.jpg"),
         website: "https://fba.um.edu.mo/faculty/deguili/",
         bio: "李德柜，澳门大学工商管理学院商业经济学特聘教授、亚太经济与管理研究所金融计量经济首席研究员及社会科学学院经济系兼职特聘教授，国家自然科学基金杰出青年科学基金项目获得者，现任《Econometric Theory》联合主编及《Journal of Time Series Analysis》副主编。主要研究领域包括时间序列分析、面板数据建模、函数型数据分析、网格数据建模、金融计量经济学、非参数计量经济学、高维计量经济学。研究成果发表于《Annals of Statistics》《Journal of the American Statistical Association》《Journal of Econometrics》《Journal of Business & Economic Statistics》等期刊。",
-      },
-      {
-        badge: "特邀报告嘉宾",
-        name: "孟涓涓",
-        role: "北京大学光华管理学院应用经济学系",
-        photo: withBase("speakers/meng.jpg"),
-        website: "https://www.gsm.pku.edu.cn/faculty/jumeng/",
-        bio: "孟涓涓，北京大学光华管理学院应用经济学系教授，北京大学行为科学与政策干预研究中心主任，国家自然科学基金杰出青年科学基金项目获得者，现任《Management Science》副主编。主要研究方向为行为经济学，重点关注行为干预与数字经济中的行为问题。研究成果发表于《American Economic Review》《Management Science》《Review of Financial Studies》《The Economic Journal》《Review of Economics and Statistics》《Journal of Public Economics》《International Economic Review》《Journal of Development Economics》《Games and Economic Behavior》和《Journal of Economic Behavior & Organization》等期刊。",
       },
       {
         badge: "特邀报告嘉宾",
