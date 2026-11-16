@@ -27,34 +27,40 @@ const kickerClass = isZh ? "font-zh-sans font-bold" : "font-semibold";
     </a>
   </div>
 
-  <div class="gallery mt-8" data-gallery>
-    <div class="relative overflow-hidden rounded-[2rem]" style="background: var(--card);">
-      <div class="gallery-track flex" data-gallery-track>
-        {c.gallery.map((photo, index) => (
-          <figure class="gallery-slide min-w-full" data-gallery-slide aria-hidden={index === 0 ? "false" : "true"}>
-            <img src={photo.src} alt={photo.alt} class="h-[56vw] max-h-[38rem] min-h-[18rem] w-full object-cover" loading={index === 0 ? "eager" : "lazy"} />
-            <figcaption class="flex min-h-20 items-center px-5 py-4 text-sm sm:px-7 sm:text-base" style="color: var(--ink);">
-              <span class="mr-3 font-semibold" style="color: var(--accent-gold);">{String(index + 1).padStart(2, "0")}</span>
-              {photo.caption}
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-      <button type="button" class="gallery-control left-3" data-gallery-prev aria-label={c.galleryPreviousLabel}>←</button>
-      <button type="button" class="gallery-control right-3" data-gallery-next aria-label={c.galleryNextLabel}>→</button>
-    </div>
-    <div class="mt-4 flex flex-wrap justify-center gap-2" aria-label={c.galleryKicker}>
-      {c.gallery.map((_, index) => (
-        <button type="button" class:list={["gallery-dot", index === 0 && "is-active"]} data-gallery-dot={index} aria-label={`${index + 1} / ${c.gallery.length}`} aria-current={index === 0 ? "true" : "false"}></button>
-      ))}
-    </div>
+  <div class="mt-8 space-y-4">
+    {c.gallerySections.map((group, groupIndex) => (
+      <details class="highlight-group overflow-hidden rounded-[1.75rem] border" style="border-color: var(--line); background: var(--card);" open={groupIndex === 0}>
+        <summary class="group-summary flex cursor-pointer list-none items-center gap-4 px-5 py-5 sm:px-7 sm:py-6">
+          <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full text-xs font-bold" style="background: var(--program-wash); color: var(--accent-gold);">
+            {String(groupIndex + 1).padStart(2, "0")}
+          </span>
+          <span class="min-w-0 flex-1">
+            <span class:list={["block text-xl sm:text-2xl", titleClass]} style="color: var(--ink);">{group.title}</span>
+            <span class="mt-1 block text-sm sm:text-base" style="color: var(--muted);">{group.subtitle}</span>
+          </span>
+          <span class="summary-icon text-2xl" style="color: var(--accent-cyan);" aria-hidden="true">＋</span>
+        </summary>
+        <div class="border-t px-4 pb-6 pt-5 sm:px-6" style="border-color: var(--line);">
+          <div class="photo-strip flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3">
+            {group.photos.map((photo, photoIndex) => (
+              <figure class="min-w-[86%] snap-start overflow-hidden rounded-2xl sm:min-w-[48%] lg:min-w-[32%]" style="background: var(--program-wash);">
+                <img src={photo.src} alt={photo.caption} class="aspect-[4/3] w-full object-cover" loading={groupIndex === 0 && photoIndex === 0 ? "eager" : "lazy"} />
+                <figcaption class="min-h-24 px-4 py-4 text-sm leading-relaxed" style="color: var(--ink);">
+                  {photo.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </details>
+    ))}
   </div>
 </section>
 
 <section id="media" class="mx-auto max-w-6xl px-5 py-16 sm:py-[4.5rem]">
   <p class:list={["text-xs uppercase tracking-[0.32em]", kickerClass]} style="color: var(--accent-cyan);">{c.mediaKicker}</p>
   <h2 class:list={["mt-3 text-3xl sm:text-4xl", titleClass]} style="color: var(--ink);">{c.mediaTitle}</h2>
-  <div class="mt-8 grid gap-5 md:grid-cols-3">
+  <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
     {c.mediaReports.map((report) => (
       <article class="card-hover flex min-h-64 flex-col rounded-3xl p-6" style="background: var(--card);">
         <p class="text-xs font-semibold uppercase tracking-[0.18em]" style="color: var(--accent-gold);">{report.source}</p>
@@ -68,55 +74,11 @@ const kickerClass = isZh ? "font-zh-sans font-bold" : "font-semibold";
 </section>
 
 <style>
-  .gallery-track { transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1); }
-  .gallery-slide { opacity: 0.55; transition: opacity 350ms ease; }
-  .gallery-slide[aria-hidden="false"] { opacity: 1; }
-  .gallery-control {
-    position: absolute;
-    top: calc(50% - 2.5rem);
-    display: grid;
-    width: 2.75rem;
-    height: 2.75rem;
-    place-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    border-radius: 9999px;
-    color: white;
-    background: rgba(9, 8, 22, 0.62);
-    backdrop-filter: blur(10px);
-  }
-  .gallery-control:hover { background: rgba(9, 8, 22, 0.82); }
-  .gallery-dot { width: 0.55rem; height: 0.55rem; border-radius: 9999px; background: var(--line-strong); transition: width 250ms ease, background 250ms ease; }
-  .gallery-dot.is-active { width: 1.75rem; background: var(--accent-fuchsia); }
-  @media (prefers-reduced-motion: reduce) { .gallery-track, .gallery-slide, .gallery-dot { transition: none; } }
+  .group-summary::-webkit-details-marker { display: none; }
+  .highlight-group[open] .summary-icon { transform: rotate(45deg); }
+  .summary-icon { transition: transform 220ms ease; }
+  .photo-strip { scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
+  .photo-strip::-webkit-scrollbar { height: 0.45rem; }
+  .photo-strip::-webkit-scrollbar-thumb { border-radius: 9999px; background: var(--line-strong); }
+  @media (prefers-reduced-motion: reduce) { .summary-icon { transition: none; } }
 </style>
-
-<script>
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  document.querySelectorAll<HTMLElement>("[data-gallery]").forEach((gallery) => {
-    const track = gallery.querySelector<HTMLElement>("[data-gallery-track]");
-    const slides = Array.from(gallery.querySelectorAll<HTMLElement>("[data-gallery-slide]"));
-    const dots = Array.from(gallery.querySelectorAll<HTMLButtonElement>("[data-gallery-dot]"));
-    if (!track || slides.length === 0) return;
-    let current = 0;
-    let timer: number | undefined;
-    const show = (next: number) => {
-      current = (next + slides.length) % slides.length;
-      track.style.transform = `translateX(-${current * 100}%)`;
-      slides.forEach((slide, index) => slide.setAttribute("aria-hidden", String(index !== current)));
-      dots.forEach((dot, index) => {
-        dot.classList.toggle("is-active", index === current);
-        dot.setAttribute("aria-current", String(index === current));
-      });
-    };
-    const stop = () => { if (timer) window.clearInterval(timer); };
-    const start = () => { if (!reduceMotion) { stop(); timer = window.setInterval(() => show(current + 1), 6000); } };
-    gallery.querySelector("[data-gallery-prev]")?.addEventListener("click", () => { show(current - 1); start(); });
-    gallery.querySelector("[data-gallery-next]")?.addEventListener("click", () => { show(current + 1); start(); });
-    dots.forEach((dot, index) => dot.addEventListener("click", () => { show(index); start(); }));
-    gallery.addEventListener("mouseenter", stop);
-    gallery.addEventListener("mouseleave", start);
-    gallery.addEventListener("focusin", stop);
-    gallery.addEventListener("focusout", start);
-    start();
-  });
-</script>
