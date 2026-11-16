@@ -29,7 +29,7 @@ const kickerClass = isZh ? "font-zh-sans font-bold" : "font-semibold";
 
   <div class="mt-8 space-y-4">
     {c.gallerySections.map((group, groupIndex) => (
-      <details class="highlight-group overflow-hidden rounded-[1.75rem] border" style="border-color: var(--line); background: var(--card);" open={groupIndex === 0}>
+      <details class="highlight-group overflow-hidden rounded-[1.75rem] border" style="border-color: var(--line); background: var(--card);" open>
         <summary class="group-summary flex cursor-pointer list-none items-center gap-4 px-5 py-5 sm:px-7 sm:py-6">
           <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full text-xs font-bold" style="background: var(--program-wash); color: var(--accent-gold);">
             {String(groupIndex + 1).padStart(2, "0")}
@@ -40,16 +40,48 @@ const kickerClass = isZh ? "font-zh-sans font-bold" : "font-semibold";
           </span>
           <span class="summary-icon text-2xl" style="color: var(--accent-cyan);" aria-hidden="true">＋</span>
         </summary>
-        <div class="border-t px-4 pb-6 pt-5 sm:px-6" style="border-color: var(--line);">
-          <div class="photo-strip flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3">
+        <div class="border-t p-4 sm:p-6" style="border-color: var(--line);">
+          <div class="story-gallery" data-story-gallery>
+            <div class="story-layout">
+              <div class="story-left min-h-36 sm:min-h-48 lg:min-h-0">
+                {group.photos.map((photo, photoIndex) => (
+                  <button type="button" class="story-thumb group relative h-full w-full overflow-hidden rounded-2xl text-left" data-story-thumb-left={photoIndex} hidden={photoIndex !== group.photos.length - 1} aria-label={photo.caption}>
+                    <img src={photo.src} alt="" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]" loading="lazy" />
+                    <span class="absolute bottom-3 left-3 grid h-7 min-w-7 place-items-center rounded-full px-2 text-xs font-bold text-white backdrop-blur-md" style="background: rgba(9, 8, 22, 0.64);">{String(photoIndex + 1).padStart(2, "0")}</span>
+                  </button>
+                ))}
+              </div>
+              <div class="story-center relative min-h-[19rem] overflow-hidden rounded-2xl sm:min-h-[31rem]">
+                {group.photos.map((photo, photoIndex) => (
+                  <figure class="story-slide absolute inset-0" data-story-slide hidden={photoIndex !== 0}>
+                    <img src={photo.src} alt={photo.caption} class="h-full w-full object-cover" loading={groupIndex === 0 && photoIndex === 0 ? "eager" : "lazy"} />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-night/95 via-night/70 to-transparent px-5 pb-5 pt-16 text-sm leading-relaxed text-white sm:px-7 sm:pb-7 sm:text-base">
+                      {photo.caption}
+                    </figcaption>
+                  </figure>
+                ))}
+                <div class="absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-bold text-white backdrop-blur-md" style="background: rgba(9, 8, 22, 0.64);">
+                  <span data-story-current>1</span> / {group.photos.length}
+                </div>
+                <div class="absolute bottom-4 right-4 flex gap-2">
+                  <button type="button" class="story-control" data-story-prev aria-label={isZh ? "上一张" : "Previous photo"}>←</button>
+                  <button type="button" class="story-control" data-story-next aria-label={isZh ? "下一张" : "Next photo"}>→</button>
+                </div>
+              </div>
+              <div class="story-right min-h-36 sm:min-h-48 lg:min-h-0">
+                {group.photos.map((photo, photoIndex) => (
+                  <button type="button" class="story-thumb group relative h-full w-full overflow-hidden rounded-2xl text-left" data-story-thumb-right={photoIndex} hidden={photoIndex !== 1} aria-label={photo.caption}>
+                    <img src={photo.src} alt="" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]" loading="lazy" />
+                    <span class="absolute bottom-3 left-3 grid h-7 min-w-7 place-items-center rounded-full px-2 text-xs font-bold text-white backdrop-blur-md" style="background: rgba(9, 8, 22, 0.64);">{String(photoIndex + 1).padStart(2, "0")}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div class="mt-4 flex flex-wrap justify-center gap-2">
             {group.photos.map((photo, photoIndex) => (
-              <figure class="min-w-[86%] snap-start overflow-hidden rounded-2xl sm:min-w-[48%] lg:min-w-[32%]" style="background: var(--program-wash);">
-                <img src={photo.src} alt={photo.caption} class="aspect-[4/3] w-full object-cover" loading={groupIndex === 0 && photoIndex === 0 ? "eager" : "lazy"} />
-                <figcaption class="min-h-24 px-4 py-4 text-sm leading-relaxed" style="color: var(--ink);">
-                  {photo.caption}
-                </figcaption>
-              </figure>
-            ))}
+                <button type="button" class:list={["story-dot", photoIndex === 0 && "is-active"]} data-story-dot={photoIndex} aria-label={`${photoIndex + 1} / ${group.photos.length}`}></button>
+              ))}
+            </div>
           </div>
         </div>
       </details>
@@ -77,8 +109,54 @@ const kickerClass = isZh ? "font-zh-sans font-bold" : "font-semibold";
   .group-summary::-webkit-details-marker { display: none; }
   .highlight-group[open] .summary-icon { transform: rotate(45deg); }
   .summary-icon { transition: transform 220ms ease; }
-  .photo-strip { scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
-  .photo-strip::-webkit-scrollbar { height: 0.45rem; }
-  .photo-strip::-webkit-scrollbar-thumb { border-radius: 9999px; background: var(--line-strong); }
-  @media (prefers-reduced-motion: reduce) { .summary-icon { transition: none; } }
+  .story-slide[hidden], .story-thumb[hidden] { display: none; }
+  .story-layout { display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: "center center" "left right"; gap: .75rem; }
+  .story-left { grid-area: left; }
+  .story-center { grid-area: center; }
+  .story-right { grid-area: right; }
+  .story-control { display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border: 1px solid rgba(255,255,255,.45); border-radius: 9999px; color: white; background: rgba(9,8,22,.68); backdrop-filter: blur(10px); }
+  .story-control:hover { background: rgba(9,8,22,.9); }
+  .story-dot { width: .5rem; height: .5rem; border-radius: 9999px; background: var(--line-strong); transition: width 220ms ease, background 220ms ease; }
+  .story-dot.is-active { width: 1.5rem; background: var(--accent-fuchsia); }
+  @media (min-width: 1024px) {
+    .story-layout { grid-template-columns: minmax(9rem,.72fr) minmax(0,2fr) minmax(9rem,.72fr); grid-template-areas: "left center right"; }
+  }
+  @media (prefers-reduced-motion: reduce) { .summary-icon, .story-dot { transition: none; } }
 </style>
+
+<script>
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll<HTMLElement>("[data-story-gallery]").forEach((gallery) => {
+    const slides = Array.from(gallery.querySelectorAll<HTMLElement>("[data-story-slide]"));
+    const leftThumbs = Array.from(gallery.querySelectorAll<HTMLButtonElement>("[data-story-thumb-left]"));
+    const rightThumbs = Array.from(gallery.querySelectorAll<HTMLButtonElement>("[data-story-thumb-right]"));
+    const dots = Array.from(gallery.querySelectorAll<HTMLButtonElement>("[data-story-dot]"));
+    const counter = gallery.querySelector<HTMLElement>("[data-story-current]");
+    if (slides.length === 0) return;
+    let current = 0;
+    let timer: number | undefined;
+    const show = (next: number) => {
+      current = (next + slides.length) % slides.length;
+      slides.forEach((slide, index) => { slide.hidden = index !== current; });
+      const previous = (current - 1 + slides.length) % slides.length;
+      const following = (current + 1) % slides.length;
+      leftThumbs.forEach((thumb, index) => { thumb.hidden = index !== previous; });
+      rightThumbs.forEach((thumb, index) => { thumb.hidden = index !== following; });
+      dots.forEach((dot, index) => dot.classList.toggle("is-active", index === current));
+      if (counter) counter.textContent = String(current + 1);
+    };
+    const stop = () => { if (timer) window.clearInterval(timer); };
+    const start = () => { if (!reducedMotion) { stop(); timer = window.setInterval(() => show(current + 1), 5500); } };
+    gallery.querySelector("[data-story-prev]")?.addEventListener("click", () => { show(current - 1); start(); });
+    gallery.querySelector("[data-story-next]")?.addEventListener("click", () => { show(current + 1); start(); });
+    leftThumbs.forEach((thumb, index) => thumb.addEventListener("click", () => { show(index); start(); }));
+    rightThumbs.forEach((thumb, index) => thumb.addEventListener("click", () => { show(index); start(); }));
+    dots.forEach((dot, index) => dot.addEventListener("click", () => { show(index); start(); }));
+    gallery.addEventListener("mouseenter", stop);
+    gallery.addEventListener("mouseleave", start);
+    gallery.addEventListener("focusin", stop);
+    gallery.addEventListener("focusout", start);
+    show(0);
+    start();
+  });
+</script>
