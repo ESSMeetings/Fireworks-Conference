@@ -146,7 +146,7 @@ const kickerClass = isZh ? "font-zh-sans font-bold" : "font-semibold";
       if (counter) counter.textContent = String(current + 1);
     };
     const stop = () => { if (timer) window.clearInterval(timer); };
-    const start = () => { if (!reducedMotion) { stop(); timer = window.setInterval(() => show(current + 1), 5500); } };
+    const start = () => { if (!reducedMotion) { stop(); timer = window.setInterval(() => show(current + 1), 3500); } };
     gallery.querySelector("[data-story-prev]")?.addEventListener("click", () => { show(current - 1); start(); });
     gallery.querySelector("[data-story-next]")?.addEventListener("click", () => { show(current + 1); start(); });
     leftThumbs.forEach((thumb, index) => thumb.addEventListener("click", () => { show(index); start(); }));
