@@ -2,6 +2,7 @@
 import type { Lang } from "../i18n/copy";
 import { t } from "../i18n/copy";
 import SiteHeader from "./SiteHeader.astro";
+import ConferenceHighlights from "./ConferenceHighlights.astro";
 
 interface Props {
   lang: Lang;
@@ -336,6 +337,8 @@ const kickerClass = isZh ? "font-zh-sans font-bold" : "font-semibold";
         </div>
       </div>
     </section>
+
+    <ConferenceHighlights lang={lang} />
 
     <section id="organizers" class="mx-auto max-w-6xl px-5 py-16 sm:py-[4.5rem]">
       <p class:list={["text-xs uppercase tracking-[0.32em]", kickerClass]} style="color: var(--accent-fuchsia);">
