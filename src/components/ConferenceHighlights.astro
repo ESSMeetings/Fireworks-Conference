@@ -43,18 +43,18 @@ const kickerClass = isZh ? "font-zh-sans font-bold" : "font-semibold";
         <div class="border-t p-4 sm:p-6" style="border-color: var(--line);">
           <div class="story-gallery" data-story-gallery>
             <div class="story-layout">
-              <div class="story-left min-h-36 sm:min-h-48 lg:min-h-0">
+              <div class="story-left aspect-[3/2] overflow-hidden rounded-2xl">
                 {group.photos.map((photo, photoIndex) => (
                   <button type="button" class="story-thumb group relative h-full w-full overflow-hidden rounded-2xl text-left" data-story-thumb-left={photoIndex} hidden={photoIndex !== group.photos.length - 1} aria-label={photo.caption}>
-                    <img src={photo.src} alt="" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]" loading="lazy" />
+                    <img src={photo.src} alt="" class="h-full w-full object-contain transition duration-300 group-hover:scale-[1.03]" loading="lazy" />
                     <span class="absolute bottom-3 left-3 grid h-7 min-w-7 place-items-center rounded-full px-2 text-xs font-bold text-white backdrop-blur-md" style="background: rgba(9, 8, 22, 0.64);">{String(photoIndex + 1).padStart(2, "0")}</span>
                   </button>
                 ))}
               </div>
-              <div class="story-center relative min-h-[19rem] overflow-hidden rounded-2xl sm:min-h-[31rem]">
+              <div class="story-center relative aspect-[3/2] overflow-hidden rounded-2xl">
                 {group.photos.map((photo, photoIndex) => (
                   <figure class="story-slide absolute inset-0" data-story-slide hidden={photoIndex !== 0}>
-                    <img src={photo.src} alt={photo.caption} class="h-full w-full object-cover" loading={groupIndex === 0 && photoIndex === 0 ? "eager" : "lazy"} />
+                    <img src={photo.src} alt={photo.caption} class="h-full w-full object-contain" loading={groupIndex === 0 && photoIndex === 0 ? "eager" : "lazy"} />
                     <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-night/95 via-night/70 to-transparent px-5 pb-5 pt-16 text-sm leading-relaxed text-white sm:px-7 sm:pb-7 sm:text-base">
                       {photo.caption}
                     </figcaption>
@@ -68,10 +68,10 @@ const kickerClass = isZh ? "font-zh-sans font-bold" : "font-semibold";
                   <button type="button" class="story-control" data-story-next aria-label={isZh ? "下一张" : "Next photo"}>→</button>
                 </div>
               </div>
-              <div class="story-right min-h-36 sm:min-h-48 lg:min-h-0">
+              <div class="story-right aspect-[3/2] overflow-hidden rounded-2xl">
                 {group.photos.map((photo, photoIndex) => (
                   <button type="button" class="story-thumb group relative h-full w-full overflow-hidden rounded-2xl text-left" data-story-thumb-right={photoIndex} hidden={photoIndex !== 1} aria-label={photo.caption}>
-                    <img src={photo.src} alt="" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]" loading="lazy" />
+                    <img src={photo.src} alt="" class="h-full w-full object-contain transition duration-300 group-hover:scale-[1.03]" loading="lazy" />
                     <span class="absolute bottom-3 left-3 grid h-7 min-w-7 place-items-center rounded-full px-2 text-xs font-bold text-white backdrop-blur-md" style="background: rgba(9, 8, 22, 0.64);">{String(photoIndex + 1).padStart(2, "0")}</span>
                   </button>
                 ))}
@@ -110,7 +110,7 @@ const kickerClass = isZh ? "font-zh-sans font-bold" : "font-semibold";
   .highlight-group[open] .summary-icon { transform: rotate(45deg); }
   .summary-icon { transition: transform 220ms ease; }
   .story-slide[hidden], .story-thumb[hidden] { display: none; }
-  .story-layout { display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: "center center" "left right"; gap: .75rem; }
+  .story-layout { display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: "center center" "left right"; align-items: center; gap: .75rem; }
   .story-left { grid-area: left; }
   .story-center { grid-area: center; }
   .story-right { grid-area: right; }

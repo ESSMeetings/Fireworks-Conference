@@ -143,6 +143,8 @@ export const copy = {
       { title: "Closing Ceremony", subtitle: "Looking ahead to future collaboration", photos: [
         { src: withBase("images/highlights/2026/closing-liu.webp"), caption: "Party Secretary Yongmei Liu chairs the closing ceremony." },
         { src: withBase("images/highlights/2026/closing-houser.webp"), caption: "Daniel Houser thanks the participants and looks ahead to future collaboration." },
+        { src: withBase("images/highlights/2026/closing-houser-applause.webp"), caption: "Daniel Houser applauds the collective effort behind the inaugural Asia meeting." },
+        { src: withBase("images/highlights/2026/closing-venue.webp"), caption: "The closing ceremony brings the meeting’s conversations together in the main auditorium." },
       ]},
       { title: "Conference Moments", subtitle: "Moments of exchange and connection", photos: [
         { src: withBase("images/highlights/2026/moments-tea-break.webp"), caption: "Conversations continue during the conference tea break." },
@@ -517,6 +519,8 @@ export const copy = {
       { title: "闭幕式", subtitle: "展望未来合作", photos: [
         { src: withBase("images/highlights/2026/closing-liu.webp"), caption: "中南大学商学院党委书记刘咏梅教授主持闭幕式。" },
         { src: withBase("images/highlights/2026/closing-houser.webp"), caption: "Daniel Houser 教授向全体参会人员表示衷心感谢，并展望未来合作。" },
+        { src: withBase("images/highlights/2026/closing-houser-applause.webp"), caption: "Daniel Houser 教授向首届亚洲会议的共同努力致意。" },
+        { src: withBase("images/highlights/2026/closing-venue.webp"), caption: "闭幕式在主会场举行，为本次会议的思想交流画上圆满句号。" },
       ]},
       { title: "会议瞬间", subtitle: "记录交流与相聚", photos: [
         { src: withBase("images/highlights/2026/moments-tea-break.webp"), caption: "会议茶歇期间，学术交流仍在继续。" },
